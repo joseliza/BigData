@@ -1,6 +1,7 @@
 import csv
 
 # Las filas se tratan como listas
+
 # with open('../../data/Cap1/subvenciones.csv', encoding='latin1') as fichero_csv:
 #     lector = csv.reader(fichero_csv)
 #     next(lector, None)  # Se salta la cabecera
@@ -14,7 +15,12 @@ import csv
 
 with open('../../data/Cap1/subvenciones.csv', encoding='latin1') as fichero_csv:
     dic_lector = csv.DictReader(fichero_csv)
-    asocs = {}
+    asociaciones = {}
     for linea in dic_lector:
         centro = linea['Asociación']
-        print(centro)
+        subvencion = float(linea['Importe'])
+        if centro in asociaciones:
+            asociaciones[centro] = asociaciones[centro] + subvencion
+        else:
+            asociaciones[centro] = subvencion
+    print(asociaciones)
