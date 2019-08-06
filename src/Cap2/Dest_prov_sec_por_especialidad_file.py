@@ -18,8 +18,6 @@ lista = []
 for i in datos:
     lista.append(i.text)
 
-
-
 # Como en la lista se nos han colocado cuatro tags con nombre "a" enlaces al principio, los eliminamos:
 lista.pop(0)
 lista.pop(0)
